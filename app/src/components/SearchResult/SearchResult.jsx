@@ -42,6 +42,7 @@ const FoodCardContainer =styled.section`
   height: calc(100vh - 210px); // we use calc to eliminate scroll by subtracting
   background-image: url('./bg.png');
   background-size: cover;
+  padding: 40px;
 `
 const FoodCards = styled.div`
   display: flex;
