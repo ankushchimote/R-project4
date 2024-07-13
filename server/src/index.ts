@@ -54,6 +54,48 @@ app.get("/", (req, res) => {
       image: "/images/pancake.png",
       type: "dinner",
     },
+    {
+      name: "DAL",
+      price: 10,
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+      image: "/images/DAL.png",
+      type: "breakfast",
+    },
+    {
+      name: "PANEER",
+      price: 25,
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+      image: "/images/PANEER.png",
+      type: "lunch",
+    },
+    {
+      name: "DONUT",
+      price: 45,
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+      image: "/images/DONUT.png",
+      type: "dinner",
+    },
+    {
+      name: "RAJNA",
+      price: 18,
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+      image: "/images/RAJMA.png",
+      type: "breakfast",
+    },
+    {
+      name: "MUTTON",
+      price: 23,
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+      image: "/images/MUTTON.png",
+      type: "lunch",
+    },
+    {
+      name: "BIRYANI",
+      price: 25,
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.",
+      image: "/images/BIRYANI.png",
+      type: "dinner",
+    },
   ];
 
   res.json(foodData);
