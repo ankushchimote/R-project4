@@ -7,11 +7,14 @@ export const BASE_URL ="http://localhost:9000"  //export word was not there befo
 
 const App = () => {
 
-  const [data,setData] =useState(null)
-  const [filterData,setFilterData] = useState(null); //for search functionality,check line24
-  const [loading,setLoading] =useState(false)  // this is use to show that loading icon when page loading
-  const [error,setError] =useState(null)
+  const [data,setData] =useState({})
+  const [filterData,setFilterData] = useState(); //for search functionality,check line24    //before it was null
   const [selectedBtn, setSelectedBtn] = useState("all");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+
+  
 
   useEffect(() => {
     const fetchFoodData =async () =>{
@@ -21,7 +24,8 @@ const App = () => {
         const response =await fetch(BASE_URL)
         const json = await response.json()   //learn the meaning of async await again
         
-        setData(json)
+       setData(json)
+        
         setFilterData(json)
         setLoading(false)
       } catch (error) {
@@ -29,8 +33,11 @@ const App = () => {
       }
       
      }
-     fetchFoodData()
+     fetchFoodData() 
   },[]) // if u just kept it empty it will load page only 1 time
+ 
+
+
 
   const searchFood =(e) => {
     const searchValue =e.target.value;
@@ -79,9 +86,12 @@ const App = () => {
     },
   ];
 
+  if (error) return <div>{error}</div>;
+  if (loading) return <div>loading.....</div>;
 
-   if (error) return <div>{error}</div>
-   if (loading) return <div>loading...</div>
+ 
+
+ 
 
   return(
       <>
