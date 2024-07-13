@@ -3,15 +3,21 @@ import styled from 'styled-components'
 import { BASE_URL } from '../../App'
 import { Button, Container } from '../../App' //this comming from app.jsx css
 
+
+//foodcartcontainer is div for those 6 container 
+//foodcard is single div for food info
+
+
+///in data we got array on which we use map
 const SearchResult = ({data}) => {  ///here we just changed name of data into food to avoid confusion
   return (
-    <FoodCardContainer>
-    <Container>
+    <FoodCardContainer>  
+    <Container> 
     <FoodCards>
         {
-            data?.map(({name, image, text, price}) => 
+            data?.map(({name, image, text, price},i) => 
             <FoodCard     ///try to remove "?" and see console,   this ? check if we got data then render data and if we didnt get data then show nothing(null)
-            key={name}      //////try to understand this code from line 7 to 17
+            key={i}      //////try to understand this code from line 7 to 17
             >
                 <div className="food_image">
                     {/* uncomment the line 15 to see error */}
@@ -24,12 +30,13 @@ const SearchResult = ({data}) => {  ///here we just changed name of data into fo
                             <h3>{name}</h3>
                             <p>{text}</p>
                         </div>
-                        <Button>${price.toFixed(2)}</Button>
+                        <Button>Rs {price.toFixed(2)}</Button>
                         </div>    
             </FoodCard>)
-
+            
             
         }
+        
     </FoodCards>
     </Container>
   </FoodCardContainer>
@@ -39,9 +46,9 @@ const SearchResult = ({data}) => {  ///here we just changed name of data into fo
 export default SearchResult
 
 const FoodCardContainer =styled.section`
-  height: calc(100vh - 210px); // we use calc to eliminate scroll by subtracting
+ // height: calc(100vh - 210px); // we use calc to eliminate scroll by subtracting
   background-image: url('./bg.png');
-  background-size: cover;
+  background-size: fixed;
   padding: 40px;
 `
 const FoodCards = styled.div`
